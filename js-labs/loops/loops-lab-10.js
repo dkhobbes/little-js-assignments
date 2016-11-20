@@ -1,7 +1,17 @@
 var names = ['Fred', 'Wilma', 'Barney', 'Betty'];
 var mNames = [];
 
-//loop goes here
+var i = 0;
+
+while(i < names.length){
+if(names[i].indexOf("m") != -1)
+
+{mNames.push(names[i]);
+  };
+  i++;
+}
+
+
 
 console.log(mNames);
 
