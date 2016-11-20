@@ -1,9 +1,4 @@
-var nums = [1, 6, 42, 3, 9];
-var sum = 0;
 
-//loop goes here
-
-console.log(sum);
 
 /*
 Write a while loop and compute the sum of the values, then console log it.
@@ -11,11 +6,12 @@ Expected output:
 61
 */
 var nums = [1, 6, 42, 3, 9];
+var i = 0;
 var sum = 0;
-var text = "";
 
-while (nums[i]) {
-    text += nums[i] ;
+
+while (i < nums.length) {
+    sum = sum + nums[i]; ;
     i++;
 }
-console.log(nums);
+console.log(sum);
