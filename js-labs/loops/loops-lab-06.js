@@ -2,8 +2,8 @@ var nums = [1, 6, 42, 3, 17];
 var bigNums = [];
 
 for (var i = 0; i < nums.length; i++) {
-if(nums[i] > 10){
-  bigNums.push(nums[i])
+  if(nums[i] > 10) {
+    bigNums.push(nums[i])
 };
 }
 console.log(bigNums);

@@ -2,10 +2,9 @@ var names = ['Fred', 'Wilma', 'Barney', 'Betty'];
 var eNames = [];
 var i = 0;
 
-while(i < names.length){
-if(names[i].indexOf("e") != -1)
-
-{eNames.push(names[i]);
+while(i < names.length) {
+  if(names[i].indexOf("e") != -1) {
+    eNames.push(names[i]);
   };
   i++;
 }

@@ -3,10 +3,9 @@ var mNames = [];
 
 var i = 0;
 
-while(i < names.length){
-if(names[i].indexOf("m") != -1)
-
-{mNames.push(names[i]);
+while(i < names.length) {
+  if(names[i].indexOf("m") != -1) {
+    mNames.push(names[i]);
   };
   i++;
 }

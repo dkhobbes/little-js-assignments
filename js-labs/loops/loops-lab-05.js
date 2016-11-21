@@ -4,7 +4,7 @@ var i = 0;
 
 //loop goes here
 
-while(i < nums.length){
+while(i < nums.length) {
   if(nums[i] > 10){
     bigNums.push(nums[i])
 

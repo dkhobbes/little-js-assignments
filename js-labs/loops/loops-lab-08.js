@@ -2,9 +2,8 @@ var names = ['Fred', 'Wilma', 'Barney', 'Betty'];
 var mNames = [];
 
 for (var i = 0; i < names.length; i++) {
-if(names[i].indexOf("m") != -1)
-
-{mNames.push(names[i])
+  if(names[i].indexOf("m") != -1) {
+    mNames.push(names[i])
   };
 }
 
