@@ -16,12 +16,9 @@ var lines = fileContents.split('\n');
 for (var i = 1; i < lines.length -1; i++){
   var line = lines[i];
 
-
-
   indivArray = lines[i].split(",");
 
   if (indivArray[32] === 'NULL') {
-    i++;
     continue;
   };
 
