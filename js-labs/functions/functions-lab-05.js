@@ -1,7 +1,7 @@
 //function goes here
 function shortstring(a, b){
 
-  if (a.length < b.length) {
+  if (a.length > b.length) {
     return a;
   }
   else {
@@ -10,7 +10,7 @@ function shortstring(a, b){
 
 }
 
-shortstring("one", "second")
+shortstring("second", "one")
 
 
 /*
