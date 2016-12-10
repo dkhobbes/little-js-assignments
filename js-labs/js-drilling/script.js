@@ -4,7 +4,20 @@ var showMe = document.querySelector('.show-me');
 
 click.addEventListener('click', function() {
   var value = stuff.value;
+  var stringContainsLetterE = containsTheLetterE(value);
+  if (stringContainsLetterE === true) {
+    showMe.classList.add('hidden');    
+  }
 
-showMe.classList.add('hidden');
 
 });
+
+function containsTheLetterE(str) {
+  var index = str.indexOf('e');
+  if (index === -1) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
