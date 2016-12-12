@@ -80,18 +80,94 @@ var apiResult = {
 
 
 //write a function that returns all kings named "Seleucus"
+function kingsNamedSeleucus(data) {
+  var output = [];
 
-//write a function that returns all kings named "Antiochus"
+  for (var i = 0; i < data.rulers.length; i++) {
+      var ruler = data.rulers[i];
+      // console.log(ruler.name);
+      if (ruler.name.indexOf('Seleucus') != -1) {
+        output.push(ruler);
+      }
+  }
+
+  return output;
+}
+
+var result =kingsNamedSeleucus(apiResult);
+// console.log(result);
+
+// write a function that returns all kings named "Antiochus"
+function kingsNamedAntiochus(data) {
+    var output = [];
+
+    for (var i = 0; i < data.rulers.length; i++) {
+      var ruler = data.rulers[i];
+      console.log(ruler.name);
+      if (ruler.name.indexOf('Antiochus') != -1) {
+        output.push(ruler);
+      }
+    }
+    return output;
+}
+
+// var result = rulersByName('Seleucus');
+var result = kingsNamedAntiochus(apiResult);
+console.log(result);
 
 //Once those two are complete, refactor so that they can both use the same function
+function rulersByName(data, kingName) {
+  var output = [];
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+    if (ruler.name.indexOf(kingName) != -1) {
+      output.push(ruler);
+    }
+  }
+  return output;
+}
+result = rulersByName(apiResult, 'Antiochus');
+// console.log(result);
 
 //-------------------------
 
 //write a function that counts the rulers with a consort named "Laodice"
+function rulersWithConsortLaodice(data) {
+  var output = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+    // console.log(ruler.name, ruler.consort);
+    if (ruler.consort.indexOf('Laodice') != -1) {
+      output.push(ruler);
+    }
+  }
+  return output.length;
+}
+
+var result = rulersWithConsortLaodice(apiResult);
+// console.log(result);
 
 //write a function that counts the rulers with a consort named "Apama"
+function rulersWithConsortApama(data) {
+  var output = [];
 
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+    // console.log(ruler.name, ruler.consort);
+    if (ruler.consort.indexOf('Apama') != -1) {
+      output.push(ruler);
+    }
+  }
+  return output.length;
+}
+
+var result = rulersWithConsortApama(apiResult);
+// console.log(result);
 //Once those two are complete, refactor so that they can both use the same function
+function rulersWithConsort(data) {
+  var output = [];
+}
 
 //-------------------------
 
