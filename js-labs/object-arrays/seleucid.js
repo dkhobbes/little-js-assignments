@@ -97,13 +97,12 @@ function kingsNamedSeleucus(data) {
 var result =kingsNamedSeleucus(apiResult);
 // console.log(result);
 
-// write a function that returns all kings named "Antiochus"
-function kingsNamedAntiochus(data) {
+ function kingsNamedAntiochus(data) {
     var output = [];
 
     for (var i = 0; i < data.rulers.length; i++) {
       var ruler = data.rulers[i];
-      console.log(ruler.name);
+      // console.log(ruler.name);
       if (ruler.name.indexOf('Antiochus') != -1) {
         output.push(ruler);
       }
@@ -113,7 +112,7 @@ function kingsNamedAntiochus(data) {
 
 // var result = rulersByName('Seleucus');
 var result = kingsNamedAntiochus(apiResult);
-console.log(result);
+// console.log(result);
 
 //Once those two are complete, refactor so that they can both use the same function
 function rulersByName(data, kingName) {
@@ -172,7 +171,35 @@ function rulersWithConsort(data) {
 //-------------------------
 
 //write a function that returns the rulers who reigned more than five years
+function moreThanFive(data) {
+  var output =[];
 
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    if (ruler.startReign - ruler.endReign > 5 ) {
+      output.push(ruler);
+    }
+  }
+  return output
+}
+
+  var result = moreThanFive(apiResult);
+  // console.log(result);
 //write a function that returns the rulers who reigned more than twenty years
+function moreThanTwenty(data) {
+  var output = [];
 
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    if (ruler.startReign - ruler.endReign > 20 ) {
+      output.push(ruler);
+    }
+  }
+  return output
+}
+
+  var result = moreThanTwenty(apiResult);
+  console.log(result);
 //Once those two are complete, refactor so that they can both use the same function
