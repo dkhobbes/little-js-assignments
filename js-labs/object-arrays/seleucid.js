@@ -94,8 +94,12 @@ function kingsNamedSeleucus(data) {
   return output;
 }
 
+// var result = rulersByName('Seleucus');
+
 var result =kingsNamedSeleucus(apiResult);
 // console.log(result);
+
+//write a function that returns all kings named "Antiochus"
 
  function kingsNamedAntiochus(data) {
     var output = [];
@@ -110,7 +114,7 @@ var result =kingsNamedSeleucus(apiResult);
     return output;
 }
 
-// var result = rulersByName('Seleucus');
+// var result = rulersByName('Antiochus');
 var result = kingsNamedAntiochus(apiResult);
 // console.log(result);
 
@@ -126,6 +130,8 @@ function rulersByName(data, kingName) {
   return output;
 }
 result = rulersByName(apiResult, 'Antiochus');
+result = rulersByName(apiResult, 'Seleucus');
+
 // console.log(result);
 
 //-------------------------
@@ -163,10 +169,23 @@ function rulersWithConsortApama(data) {
 
 var result = rulersWithConsortApama(apiResult);
 // console.log(result);
+
 //Once those two are complete, refactor so that they can both use the same function
-function rulersWithConsort(data) {
+function rulersWithConsort(data, kingConsort) {
   var output = [];
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+    if (ruler.consort.indexOf(kingConsort) != -1) {
+      output.push(ruler);
+    }
+  }
+  return output;
 }
+
+result = rulersWithConsort(apiResult, 'Apama');
+result = rulersWithConsort(apiResult, 'Laodice');
+
+// console.log(result);
 
 //-------------------------
 
@@ -186,6 +205,7 @@ function moreThanFive(data) {
 
   var result = moreThanFive(apiResult);
   // console.log(result);
+
 //write a function that returns the rulers who reigned more than twenty years
 function moreThanTwenty(data) {
   var output = [];
@@ -201,5 +221,22 @@ function moreThanTwenty(data) {
 }
 
   var result = moreThanTwenty(apiResult);
-  console.log(result);
+  // console.log(result);
+
 //Once those two are complete, refactor so that they can both use the same function
+
+function rulersReign(data, reign) {
+  var output = [];
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+    if (ruler.startReign - ruler.endReign > reign ) {
+      output.push(ruler);
+    }
+  }
+  return output;
+}
+
+result = rulersReign(apiResult, 20);
+result = rulersReign(apiResult, 5);
+
+// console.log(result);
