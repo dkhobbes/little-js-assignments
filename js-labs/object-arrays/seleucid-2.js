@@ -256,11 +256,11 @@ function rulerLongestName(data) {
   return kingWithLongName;
 }
 var result = rulerLongestName(apiResult);
-// console.log(result);
+console.log(result);
 
 //Write a function that takes a consorts name and returns all the kings she was consort with
 function consortAndHerKings(data) {
-  var output [];
+  var output = [];
 
   for (var i =0; i < data.rulers.length; i++) {
     var rulers = data.rulers[i];
@@ -290,15 +290,17 @@ function rulerWithConsortCleopatra(data) {
   return output;
 }
 var result =rulerWithConsortCleopatra(apiResult);
-console.log(result);
+// console.log(result);
 
 
 //Write a function that returns all kings with a consort whose name contains "Laodice"
 
 function rulersWithConsortLaodice(data) {
-  var output [];
+  var output = [];
 
   for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
     if (ruler.consort.indexOf('Laodice') != -1) {
       output.push(ruler);
     }
@@ -306,7 +308,7 @@ function rulersWithConsortLaodice(data) {
   return output;
 }
 var result =rulersWithConsortLaodice(apiResult);
-console.log(result);
+// console.log(result);
 //Once those two are complete, refactor so that they can both use the same function
 
 // check to see if the two above work first
