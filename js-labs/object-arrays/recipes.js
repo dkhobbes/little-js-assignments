@@ -50,19 +50,131 @@ var apiResult = {
 
 
 //Write a function that will return all recipes with thumbnails
+function recipesWithThumbnails(data) {
+  var output = [];
+  // console.log('step 1');
+  for (var i = 0; i < data.results.length; i++) {
+    var results = data.results[i];
+    // console.log('step 2');
 
+    if (results.thumbnail.indexOf('') === null) {
+      output.push(results);
+      // console.log('step 3');
+    }
+  }
+  return output;
+  // console.log('step 4');
+}
+var result = recipesWithThumbnails(apiResult);
+// console.log(result);
 //-------------------------
 
 //Write a function that will return all recipes that include butter
 
+function recipeWithButter(data) {
+  var output = [];
+  for (var i =0; i < data.results.length; i++) {
+    var results = data.results[i];
+
+    if (results.ingredients.indexOf('butter') != -1) {
+      output.push(results);
+
+    }
+  }
+  return output;
+}
+var result = recipeWithButter(apiResult);
+// console.log(result);
+
 //Write a function that will return all recipes that include mushrooms
 
+function recipeWithMushrooms(data) {
+  var output = [];
+  for (var i = 0; i < data.results.length; i++) {
+    var results = data.results[i];
+
+    if (results.ingredients.indexOf('mushroom') != -1) {
+      output.push(results);
+    }
+  }
+  return output
+}
+var result = recipeWithMushrooms(apiResult);
+// console.log(result);
+
 //Once those two are complete, refactor so that they can both use the same function
+function recipeSpecificIngredient(data, ingredients) {
+  var output = [];
+  for(var i = 0; i < data.results.length; i++) {
+    var results = data.results[i];
+
+    if (results.ingredients.indexOf(ingredients) != -1) {
+      output.push(results);
+    }
+  }
+  return output;
+}
+// var result = recipeSpecificIngredient(apiResult, 'butter');
+var result = recipeSpecificIngredient(apiResult, 'mushroom');
+// console.log(result);
 
 //-------------------------
 
 //Write a function that will return all recipes with more than 10 ingredients
 
+function recipeWithTenOrMore(data) {
+  var output = [];
+
+  for(var i = 0; i <data.results.length; i++) {
+    var results = data.results[i];
+    var str = results.ingredients.split(", ");
+
+    if (str.length > 10) {
+      output.push(results);
+    }
+  }
+  return output;
+}
+var result = recipeWithTenOrMore(apiResult);
+// console.log(result);
+
+// split function
+
 //Write a function that will return all recipes with more than 13 ingredients
 
+function recipeWithThirteenOrMore(data) {
+  var output = [];
+
+  for(var i =0; i < data.results.length; i++) {
+    var results = data.results[i];
+    var str = results.ingredients.split(", ");
+
+    if (str.length > 13) {
+      output.push(results);
+    }
+  }
+  return output;
+}
+var result = recipeWithThirteenOrMore(apiResult);
+// console.log(result);
+
 //Once those two are complete, refactor so that they can both use the same function
+
+function recipeMoreThan(data, numberIngredients) {
+  var output = [];
+
+  for(var i= 0; i <data.results.length; i++) {
+    var results = data.results[i];
+    var str = results.ingredients.split(", ");
+
+    if (str.length > numberIngredients) {
+      output.push(results);
+    }
+  }
+  return output;
+}
+// var result = recipeMoreThan(apiResult, 10);
+var result = recipeMoreThan(apiResult, 13);
+
+
+console.log(result);
