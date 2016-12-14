@@ -57,7 +57,7 @@ function recipesWithThumbnails(data) {
     var results = data.results[i];
     // console.log('step 2');
 
-    if (results.thumbnail.indexOf('') === null) {
+    if (results.thumbnail !== "") {
       output.push(results);
       // console.log('step 3');
     }
@@ -66,7 +66,7 @@ function recipesWithThumbnails(data) {
   // console.log('step 4');
 }
 var result = recipesWithThumbnails(apiResult);
-// console.log(result);
+console.log(result);
 //-------------------------
 
 //Write a function that will return all recipes that include butter
@@ -177,4 +177,4 @@ function recipeMoreThan(data, numberIngredients) {
 var result = recipeMoreThan(apiResult, 13);
 
 
-console.log(result);
+// console.log(result);
