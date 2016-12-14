@@ -6,7 +6,7 @@ var apiResult = {
       name: 'Seleucus I Nicator',
       startReign: 305,
       endReign: 281,
-      consorts: ['Apama']
+      consort: ['Apama']
     },
     {
       name: 'Antiochus I Soter',
@@ -193,21 +193,120 @@ var apiResult = {
 
 
 //Write a function that returns all kings with 2 consorts
+function rulersWithTwoConsorts(data) {
+  var output = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+    // console.log(ruler.name, ruler.consort);
+    if (ruler.consort.length == 2) {
+      output.push(ruler);
+    }
+  }
+  return output;
+}
+var result = rulersWithTwoConsorts(apiResult);
+// console.log(result);
 
 //Write a function that returns all kings with 0 consorts
+function rulersWithNoConsorts(data) {
+  var output = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    if (ruler.consort.length == 0) {
+      output.push(ruler);
+    }
+  }
+  return output;
+}
+var result = rulersWithNoConsorts(apiResult);
+// console.log(result);
 
 //Once those two are complete, refactor so that they can both use the same function
+function rulersConsortReturn(data, amount) {
+  var output = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    if (ruler.consort.length == amount) {
+      output.push(ruler);
+    }
+  }
+  return output;
+}
+// var result = rulersConsortReturn(apiResult, 2);
+var result = rulersConsortReturn(apiResult, 0);
+// console.log(result);
 
 //-------------------------
 
 //Write a function that returns the king with the longest name
+function rulerLongestName(data) {
+  var kingWithLongName = data.rulers[0];
+
+  for (var i = 1; i <data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+    if (ruler.name.length > kingWithLongName.name.length) {
+      kingWithLongName = ruler;
+    }
+  }
+  return kingWithLongName;
+}
+var result = rulerLongestName(apiResult);
+// console.log(result);
 
 //Write a function that takes a consorts name and returns all the kings she was consort with
+function consortAndHerKings(data) {
+  var output [];
+
+  for (var i =0; i < data.rulers.length; i++) {
+    var rulers = data.rulers[i];
+
+
+    // not sure where to go from here
+
+
+
+  }
+}
 
 //-------------------------
 
 //Write a function that returns all kings with a consort whose name contains "Cleopatra"
 
+function rulerWithConsortCleopatra(data) {
+  var output = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    if (ruler.consort.indexOf('Cleopatra') != -1) {
+      output.push(ruler);
+    }
+  }
+  return output;
+}
+var result =rulerWithConsortCleopatra(apiResult);
+console.log(result);
+
+
 //Write a function that returns all kings with a consort whose name contains "Laodice"
 
+function rulersWithConsortLaodice(data) {
+  var output [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    if (ruler.consort.indexOf('Laodice') != -1) {
+      output.push(ruler);
+    }
+  }
+  return output;
+}
+var result =rulersWithConsortLaodice(apiResult);
+console.log(result);
 //Once those two are complete, refactor so that they can both use the same function
+
+// check to see if the two above work first
