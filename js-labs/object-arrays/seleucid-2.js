@@ -262,20 +262,20 @@ var result = rulerLongestName(apiResult);
 function consortAndHerKings(data, consortName) {
   var output = [];
 
-  for (var i =0; i < data.rulers.length; i++) {
-    var rulers = data.rulers[i];
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
 
-    for (var c=0; i < rulers.consort.length; c++) {
-      if (rulers.consort[c] === consortName) {
+    for (var c = 0; i < ruler.consort.length; c++) {
+      if (ruler.consort[c] === consortName) {
 
-        output.push(rulers);
+        output.push(ruler);
       }
     }
   }
   return output;
 }
 var result = consortAndHerKings(apiResult, "Apama");
-console.log(result);
+// console.log(result);
 //-------------------------
 
 //Write a function that returns all kings with a consort whose name contains "Cleopatra"
@@ -287,7 +287,7 @@ function rulerWithConsortCleopatra(data) {
     var ruler = data.rulers[i];
 
   for (var c = 0; c < ruler.consort.length; c++) {
-    if (ruler.consort.indexOf('Cleopatra') != -1) {
+    if (ruler.consort[c].indexOf('Cleopatra') != -1) {
       output.push(ruler);
       break;
       }
@@ -307,14 +307,34 @@ function rulersWithConsortLaodice(data) {
   for (var i = 0; i < data.rulers.length; i++) {
     var ruler = data.rulers[i];
 
-    if (ruler.consort.indexOf('Laodice') != -1) {
-      output.push(ruler);
+    for (var c = 0; c < ruler.consort.length; c++) {
+
+      if (ruler.consort[c].indexOf('Laodice') != -1) {
+        output.push(ruler);
+        break;
     }
   }
+}
   return output;
 }
 var result =rulersWithConsortLaodice(apiResult);
 // console.log(result);
 //Once those two are complete, refactor so that they can both use the same function
 
-// check to see if the two above work first
+function consortWithRuler(data, consortName) {
+  var output = [];
+
+  for (var i = 0; i < data.rulers.length; i++) {
+    var ruler = data.rulers[i];
+
+    for (var c = 0; c < ruler.consort.length; c++) {
+      if (ruler.consort[c].indexOf('consortName') != -1) {
+        output.push(ruler);
+
+      }
+    }
+  }
+  return output;
+}
+var result = consortWithRuler(apiData, 'Laodice');
+console.log(result);
