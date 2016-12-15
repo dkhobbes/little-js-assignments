@@ -1026,19 +1026,19 @@ var items = [{
 }];
 
 
-
-
-
 // Calculate the average price of all the items.
 function avgPrice(data) {
   var output = [];
 
   for (var i = 0; i < data.items.length; i++) {
     var theItems = data.items[i];
+    var str = items.price.split(", ")
+
 
 
   }
 }
+console.log(theItems.price/theItems);
 
 
 // Get all the items that cost between $14.00 and $18.00 USD
@@ -1054,8 +1054,8 @@ function priceRange(data) {
   }
   return output;
 }
-var result = priceRange(apiResult);
-console.log(result);
+var result = priceRange(items);
+// console.log(result);
 
 // Log the name and price of every item with a "GBP" currency code and print its name and price.
 

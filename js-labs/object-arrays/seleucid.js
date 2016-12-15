@@ -183,9 +183,9 @@ function rulersWithConsort(data, kingConsort) {
 }
 
 result = rulersWithConsort(apiResult, 'Apama');
-result = rulersWithConsort(apiResult, 'Laodice');
+// result = rulersWithConsort(apiResult, 'Laodice');
 
-// console.log(result);
+console.log(result);
 
 //-------------------------
 
@@ -237,6 +237,6 @@ function rulersReign(data, reign) {
 }
 
 result = rulersReign(apiResult, 20);
-result = rulersReign(apiResult, 5);
+// result = rulersReign(apiResult, 5);
 
 // console.log(result);

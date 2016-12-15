@@ -256,23 +256,26 @@ function rulerLongestName(data) {
   return kingWithLongName;
 }
 var result = rulerLongestName(apiResult);
-console.log(result);
+// console.log(result);
 
 //Write a function that takes a consorts name and returns all the kings she was consort with
-function consortAndHerKings(data) {
+function consortAndHerKings(data, consortName) {
   var output = [];
 
   for (var i =0; i < data.rulers.length; i++) {
     var rulers = data.rulers[i];
 
+    for (var c=0; i < rulers.consort.length; c++) {
+      if (rulers.consort[c] === consortName) {
 
-    // not sure where to go from here
-
-
-
+        output.push(rulers);
+      }
+    }
   }
+  return output;
 }
-
+var result = consortAndHerKings(apiResult, "Apama");
+console.log(result);
 //-------------------------
 
 //Write a function that returns all kings with a consort whose name contains "Cleopatra"
@@ -283,8 +286,11 @@ function rulerWithConsortCleopatra(data) {
   for (var i = 0; i < data.rulers.length; i++) {
     var ruler = data.rulers[i];
 
+  for (var c = 0; c < ruler.consort.length; c++) {
     if (ruler.consort.indexOf('Cleopatra') != -1) {
       output.push(ruler);
+      break;
+      }
     }
   }
   return output;
