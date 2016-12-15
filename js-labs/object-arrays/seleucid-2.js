@@ -265,9 +265,8 @@ function consortAndHerKings(data, consortName) {
   for (var i = 0; i < data.rulers.length; i++) {
     var ruler = data.rulers[i];
 
-    for (var c = 0; i < ruler.consort.length; c++) {
+    for (var c = 0; c < ruler.consort.length; c++) {
       if (ruler.consort[c] === consortName) {
-
         output.push(ruler);
       }
     }
@@ -318,7 +317,9 @@ function rulersWithConsortLaodice(data) {
   return output;
 }
 var result =rulersWithConsortLaodice(apiResult);
+
 // console.log(result);
+
 //Once those two are complete, refactor so that they can both use the same function
 
 function consortWithRuler(data, consortName) {
@@ -328,13 +329,13 @@ function consortWithRuler(data, consortName) {
     var ruler = data.rulers[i];
 
     for (var c = 0; c < ruler.consort.length; c++) {
-      if (ruler.consort[c].indexOf('consortName') != -1) {
+      if (ruler.consort[c].indexOf(consortName) != -1) {
         output.push(ruler);
-
+        break;
       }
     }
   }
   return output;
 }
-var result = consortWithRuler(apiData, 'Laodice');
+// var result = consortWithRuler(apiResult, 'Laodice');
 console.log(result);
