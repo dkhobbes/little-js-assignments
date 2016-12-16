@@ -1117,3 +1117,17 @@ function eightOrMore(data) {
   console.log(result);
 
 // Return the items that were made by their sellers
+function madeBySellers(data) {
+  var output = [];
+
+  for( var i = 0; i < data.length; i++) {
+    var item = data[i];
+
+    if (item.who_made === "i_did") {
+      output.push(item);
+    }
+  }
+  return output;
+}
+var result = madeBySellers(items);
+// console.log(result);
