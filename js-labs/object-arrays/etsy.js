@@ -601,7 +601,7 @@ var items = [{
   "processing_max": 10,
   "who_made": "i_did",
   "is_supply": "false",
-  "when_made": "made_to_order",
+  "when_made": "made_to_order"
   "is_private": false,
   "recipient": null,
   "occasion": "wedding",
@@ -1076,15 +1076,44 @@ function itemGBP(data) {
   return output;
 }
 var result = itemGBP(items);
-console.log(result);
+// console.log(result);
 
 
 // Return all items that are at least partially made of wood.
+function itemsWithWood(data) {
+  var output = [];
+
+  for (var i = 0; i < data.length; i++) {
+    var item = data[i];
+
+  for (var c = 0; c < item.materials.length; c++) {
+    var material = item.materials[c];
 
 
+    if(material === "wood") {
+      output.push(item);
+      }
+    }
+  }
+  return output;
+}
+  var result = itemsWithWood(items);
+  // console.log(result);
 
 // Find which items are made of eight or more materials.
+function eightOrMore(data) {
+  var output = [];
 
+  for (var i= 0; i < data.length; i++) {
+    var item = data[i];
 
+      if (item.materials.length >= 8) {
+        output.push(item);
+    }
+  }
+  return output;
+}
+  var result = eightOrMore(items);
+  console.log(result);
 
 // Return the items that were made by their sellers
