@@ -1029,27 +1029,28 @@ var items = [{
 // Calculate the average price of all the items.
 function avgPrice(data) {
   var output = [];
+  var sum = 0;
 
-  for (var i = 0; i < data.items.length; i++) {
-    var theItems = data.items[i];
-    var str = items.price.split(", ")
-
-
-
+  for (var i = 0; i < data.length; i++) {
+    var theItems = data[i];
+      sum += theItems.price;
   }
+  output= sum/data.length;
+  return output;
 }
-console.log(theItems.price/theItems);
+var result = avgPrice(items);
+// console.log(result);
 
 
 // Get all the items that cost between $14.00 and $18.00 USD
 function priceRange(data) {
   var output = [];
 
-  for (var i = 0; i < data.items.length; i++) {
-    var theItems = data.items[i];
+  for (var i = 0; i < data.length; i++) {
+    var item = data[i];
 
-    if (items.price > 14 && items.price < 18) {
-      output.push(theItems);
+    if (item.price > 14 && item.price < 18 && item.currency_code === "USD") {
+      output.push(item);
     }
   }
   return output;
@@ -1058,7 +1059,24 @@ var result = priceRange(items);
 // console.log(result);
 
 // Log the name and price of every item with a "GBP" currency code and print its name and price.
+function itemGBP(data) {
+  var output = [];
 
+  for (var i = 0; i < data.length; i++) {
+    var item = data[i];
+
+    if(item.currency_code === "GBP") {
+      var pushObject = {
+        Name: item.title,
+        Price: item.price
+      }
+      output.push(pushObject);
+    }
+  }
+  return output;
+}
+var result = itemGBP(items);
+console.log(result);
 
 
 // Return all items that are at least partially made of wood.
