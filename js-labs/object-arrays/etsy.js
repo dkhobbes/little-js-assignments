@@ -601,7 +601,7 @@ var items = [{
   "processing_max": 10,
   "who_made": "i_did",
   "is_supply": "false",
-  "when_made": "made_to_order"
+  "when_made": "made_to_order",
   "is_private": false,
   "recipient": null,
   "occasion": "wedding",
@@ -1027,6 +1027,7 @@ var items = [{
 
 
 // Calculate the average price of all the items.
+
 function avgPrice(data) {
   var output = [];
   var sum = 0;
@@ -1039,10 +1040,12 @@ function avgPrice(data) {
   return output;
 }
 var result = avgPrice(items);
+
 // console.log(result);
 
 
 // Get all the items that cost between $14.00 and $18.00 USD
+
 function priceRange(data) {
   var output = [];
 
@@ -1056,6 +1059,7 @@ function priceRange(data) {
   return output;
 }
 var result = priceRange(items);
+
 // console.log(result);
 
 // Log the name and price of every item with a "GBP" currency code and print its name and price.
@@ -1076,10 +1080,12 @@ function itemGBP(data) {
   return output;
 }
 var result = itemGBP(items);
+
 // console.log(result);
 
 
 // Return all items that are at least partially made of wood.
+
 function itemsWithWood(data) {
   var output = [];
 
@@ -1098,9 +1104,11 @@ function itemsWithWood(data) {
   return output;
 }
   var result = itemsWithWood(items);
+
   // console.log(result);
 
 // Find which items are made of eight or more materials.
+
 function eightOrMore(data) {
   var output = [];
 
@@ -1114,9 +1122,11 @@ function eightOrMore(data) {
   return output;
 }
   var result = eightOrMore(items);
-  console.log(result);
+
+  // console.log(result);
 
 // Return the items that were made by their sellers
+
 function madeBySellers(data) {
   var output = [];
 
@@ -1130,4 +1140,5 @@ function madeBySellers(data) {
   return output;
 }
 var result = madeBySellers(items);
-// console.log(result);
+
+console.log(result);
