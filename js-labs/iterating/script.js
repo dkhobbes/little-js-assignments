@@ -612,12 +612,50 @@ var dataset = [
 
 // For all these, use the forEach iterator function
 
+// Create a function that finds all the ages that there are more females than males
+function findAllYearsMoreFemales(data) {
+  var output = [];
 
-// Create a function that finds all the years that there are more females than males
+  data.forEach(function(item) {
+    if (item.females > item.males) {
+      output.push(item.age);
+    }
+  });
+  return output;
+}
 
-// Create a function that finds all the years that there are more males than females
+var result = findAllYearsMoreFemales(dataset);
+// console.log('result', result);
+
+// Create a function that finds all the ages that there are more males than females
+function findAllYearsMoreMales(data) {
+  var output = [];
+
+  data.forEach(function(item) {
+    if (item.males > item.females) {
+      output.push(item.age);
+    }
+  });
+  return output;
+}
+var result = findAllYearsMoreMales(dataset);
+// console.log('result', result);
 
 // Refactor those into one function
+function findMorePeopleGender(data, greater, lesser) {
+  var output = [];
+
+  data.forEach(function(ageGroup) {
+    if (ageGroup[greater] > ageGroup[lesser]) {
+      output.push(ageGroup.age);
+    }
+  });
+
+  return output;
+}
+
+var result = findMorePeopleGender(dataset, 'males', 'females');
+console.log('result', result);
 
 // ---------------------
 
