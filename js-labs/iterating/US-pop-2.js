@@ -611,10 +611,35 @@ var dataset = [
 ];
 
 
+// var output = people.map(function(person) {
+//   var obj = {
+//     firstName: person.firstName,
+//     lastName: person.lastName,
+//     fullName: person.firstName + ' ' + person.lastName
+//   }
+//   return obj;
+// });
+
 
 // Write a function that will take this data and return just an array of the female population numbers. Requirement: use map.
+function justFemales(data) {
+  var output = data.map(function(x) {
+    return x.females;
+  });
+  return output;
+}
+  var result = justFemales(dataset);
+  // console.log(result);
 
 // Write a function that will take this data and return just an array of the male population numbers. Requirement: use map.
+function justMales(data) {
+  var output = data.map(function(x) {
+    return x.males;
+  });
+  return output;
+}
+  var result = justMales(dataset);
+  console.log(result);
 
 // Write a function that will take this data and return a new array of objects without the country and year properties. Requirement: use map.
 
