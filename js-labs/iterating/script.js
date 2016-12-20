@@ -654,21 +654,114 @@ function findMorePeopleGender(data, greater, lesser) {
   return output;
 }
 
-var result = findMorePeopleGender(dataset, 'males', 'females');
-console.log('result', result);
+// var result = findMorePeopleGender(dataset, 'males', 'females');
+var result = findMorePeopleGender(dataset, 'females', 'males');
+
+// console.log('result', result);
 
 // ---------------------
 
 // Create a function that computes the total number of males
+function totalMales(data) {
+  var output = 0;
+
+  data.forEach(function(ageGroup) {
+    if (data.males !== null) {
+      output += ageGroup.males;
+    }
+  });
+  return output;
+}
+  result = totalMales(dataset);
+  // console.log('result', result);
 
 // Create a function that computes the total number of females
+function totalPopulationFemales(data) {
+  var output = 0;
+
+  data.forEach(function(ageGroup) {
+    // console.log('doing this', ageGroup.age);
+      output += ageGroup.females;
+  });
+
+  return output;
+}
+  result = totalPopulationFemales(dataset);
+  // console.log('result', result);
 
 // Refactor those into one function
+
+function totalPopulationGender(data, gender) {
+  var output = 0;
+
+  data.forEach(function(item) {
+    output += item[gender];
+  });
+  return output;
+}
+  var result = totalPopulationGender(dataset, "females");
+  // console.log('result', result);
 
 // ---------------------
 
 // Create a function that computes the total number of males over the age of 65
+function totalMalesOverSixtyFive(data) {
+  var output= 0;
+
+  data.forEach(function(ageGroup) {
+    if (ageGroup.age >= 65){
+      output += ageGroup.males;
+    }
+  });
+  return output;
+}
+  result = totalMalesOverSixtyFive(dataset);
+  // console.log('total males over 65: ', result);
 
 // Create a function that computes the total number of females over the age of 65
+function totalFemalesOverSixtyFive(data) {
+  var output = 0;
+
+  data.forEach(function(ageGroup) {
+    if (ageGroup.age >= 65) {
+      output += ageGroup.females;
+    }
+  });
+  return output;
+}
+  result = totalFemalesOverSixtyFive(dataset);
+  // console.log('total females over 65: ', result);
 
 // Refactor those into one function
+
+function totalGenderOverSixtyFive(data, gender) {
+  var output = 0;
+
+  data.forEach(function(ageGroup) {
+    if (ageGroup.age >= 65) {
+      output += ageGroup[gender];
+    }
+  });
+  return output;
+}
+  result = totalFemalesOverSixtyFive(dataset, "females");
+  console.log('gender over 65: ', result);
+
+///////////////////
+
+/*example in class pulling total population of 5 and younger*/
+
+// function totalPopulationfiveOrYounger(data) {
+//   var output = 0;
+//
+//   data.forEach(function(ageGroup) {
+//     // console.log('doing this', ageGroup.age);
+//     if (ageGroup.age <= 5) {
+//       output += ageGroup.total;
+//     }
+//   });
+//
+//   return output;
+// }
+// result = totalPopulationfiveOrYounger(dataset);
+// // console.log('result', result);
