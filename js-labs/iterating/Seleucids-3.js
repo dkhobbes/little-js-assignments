@@ -208,17 +208,25 @@ var dataset = {
 
 // Create a function that calculates the total consorts. Requirement: you must use reduce
 function totalConsorts(data) {
-  var output = dataset.rulers.reduce(function(sum, valueInArray ) {
-    // console.log('sum', sum, 'valueInArray', valueInArray);
-    return sum + valueInArray ;
+  var output = data.rulers.reduce(function(sum, ruler ) {
+    return sum + ruler.consort.length;
   }, 0);
   return output;
 }
   var result = totalConsorts(dataset);
-  console.log(result);
+  // console.log(result);
 
 
 // Use the function you just created to calculate the average number of consorts
+function totalConsorts(data) {
+  var output = data.rulers.reduce(function(sum, ruler ) {
+    return sum + ruler.consort.length;
+  }, 0);
+  var avg = output/data.rulers.length;
+  return avg;
+}
+  var result = totalConsorts(dataset);
+  // console.log(result);
 
 //-------------------------
 

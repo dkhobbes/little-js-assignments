@@ -615,7 +615,7 @@ var dataset = [
 //   var obj = {
 //     firstName: person.firstName,
 //     lastName: person.lastName,
-//     fullName: person.firstName + ' ' + person.lastName
+//     fullName: person.firstName + ' ' +     person.lastName
 //   }
 //   return obj;
 // });
@@ -632,6 +632,7 @@ function justFemales(data) {
   // console.log(result);
 
 // Write a function that will take this data and return just an array of the male population numbers. Requirement: use map.
+
 function justMales(data) {
   var output = data.map(function(x) {
     return x.males;
@@ -639,8 +640,39 @@ function justMales(data) {
   return output;
 }
   var result = justMales(dataset);
-  console.log(result);
+//   console.log(result);
 
 // Write a function that will take this data and return a new array of objects without the country and year properties. Requirement: use map.
+function removeThings(data) {
+  var output = data.map(function(x) {
+    return {
+      males: x.males,
+      females: x.females,
+      age: x.age,
+      total: x.total
+    };
+
+  });
+  return output;
+}
+  var result = removeThings(dataset);
+  // console.log(result);
 
 // Write a function that will take this data and return a new array of objects with all the same properties, also including a new property containing the difference in male and female population. To get this, subtract the female population from the male population. Requirement: use map.
+
+function addDifferenceToEverything(data) {
+  var output = data.map(function(x) {
+
+    return {
+      males: x.males,
+      females: x.females,
+      age: x.age,
+      total: x.total,
+      difference: x.females - x.males
+    }
+
+  });
+  return output;
+}
+  var result = addDifferenceToEverything(dataset);
+  console.log(result);
