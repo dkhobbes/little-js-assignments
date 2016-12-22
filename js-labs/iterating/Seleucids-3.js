@@ -341,7 +341,7 @@ var dataset = {
 
 function arrayOfStrings(data) {
   var output = data.rulers.map(function(ruler) {
-    return ruler.name + " " + "(" + (ruler.startReign + "-" + ruler.endReign + " " + "BCE") + ")";
+    return ruler.name + " " + "(" + ruler.startReign + "-" + ruler.endReign + " " + "BCE" + ")";
   });
   return output;
 }
