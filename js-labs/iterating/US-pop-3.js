@@ -629,7 +629,7 @@ var dataset = [
 // Write a function that returns all years where there is a greater than 20K difference male and female population. Requirement: use filter.
 function yearDiffTwentyKPlus(data) {
   var output = data.filter(function(obj) {
-    if (obj.males.indexOf - obj.females.indexOf > 20000) {
+    if (Math.abs(obj.males - obj.females) > 20000) {
       return true;
     }
     else {
@@ -639,9 +639,71 @@ function yearDiffTwentyKPlus(data) {
   return output;
 }
   var result = yearDiffTwentyKPlus(dataset);
-  console.log(result);
+  // console.log(result);
+
 // Write a function that returns all years where there is less than a 100K population. Requirement: use filter.
 
+function lessThanHundredK(data) {
+  var output = data.filter(function(obj) {
+    if (obj.total < 100000) {
+      return true;
+    }
+    else {
+      return false
+    }
+  });
+  return output;
+}
+  var result = lessThanHundredK(dataset);
+  // console.log(result);
+
 //  Write a function that returns all years where there is a greater than 20K difference male and female population. Then have it take this data and return a new array of objects without the country and year properties. Requirements: use filter to accomplish the first and map to accomplish the second.
+function yearDiffTwentyKPlus(data) {
+  var output = data.filter(function(obj) {
+    if (Math.abs(obj.males - obj.females) > 20000) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  });
+
+  var output2 = data.map(function(x) {
+    return {
+      age: x.age,
+      females: x.females,
+      males: x.males,
+      total: x.total
+    }
+  });
+  return output2;
+}
+  var result = yearDiffTwentyKPlus(dataset);
+  // console.log(result);
 
 // Write a function that returns all years where there is less than a 100K population. Then have it take this data and return a new array of objects with all the same properties, also including a new property containing the difference in male and female population. To get this, subtract the female population from the male population. Requirements: use filter to accomplish the first and map to accomplish the second. Requirement: use filter.
+function lessThanHundredK(data) {
+  var output = data.filter(function(obj) {
+    if (obj.total < 100000) {
+      return true;
+    }
+    else {
+      return false
+    }
+  });
+
+  var output2 = data.map(function(x) {
+    return {
+      females: x.females,
+      country: x.country,
+      age: x.age,
+      males: x.males,
+      year: x.year,
+      total: x.total,
+      MalesDiffFemales: x.males - x.females
+    }
+  });
+  return output2;
+}
+  var result = lessThanHundredK(dataset);
+  console.log(result);
