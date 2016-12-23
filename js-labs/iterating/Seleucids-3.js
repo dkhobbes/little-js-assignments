@@ -226,7 +226,7 @@ var dataset = {
 
 // function countOfSecondRulerName(data) {
 //   var output = data.rulers.reduce(function(sum, ruler) {
-//     if (ruler.name.indexOf('II') != -1) {
+//     if (ruler.name.indexOf(' II ') != -1) {
 //       return sum + 1;    }
 //
 //       else {

@@ -629,7 +629,7 @@ var dataset = [
 // Write a function that returns all years where there is a greater than 20K difference male and female population. Requirement: use filter.
 function yearDiffTwentyKPlus(data) {
   var output = data.filter(function(obj) {
-    if (obj.males.indexOf - obj.females.indexOf > 20,000) {
+    if (obj.males.indexOf - obj.females.indexOf > 20000) {
       return true;
     }
     else {

@@ -256,15 +256,28 @@ function rulersNoConsorts(data) {
 // Write a function that returns the rulers who reigned more than five years. Then have it return a new array containing objects with all the same properties, including a new property called "lengthOfReign". Requirement: use filter for the first task and map for the second.
 function moreThanFivePlusLength(data) {
   var output = data.rulers.filter(function(ruler) {
-    return {
-         name: ruler.name,
-         startReign: ruler.startReign,
-         endReign: ruler.endReign,
-         lengthOfReign: ruler.startReign - ruler.endReign,
-         consort: ruler.consort
-       }
+    if (ruler.startReign - ruler.endReign > 5) {
+      return {
+           name: ruler.name,
+           startReign: ruler.startReign,
+           endReign: ruler.endReign,
+           consort: ruler.consort
+         }
+    }
+
   });
-  return output;
+
+  var output2 = output.map(function(x) {
+    return {
+      name: x.name,
+      startReign: x.startReign,
+      endReign: x.endReign,
+      consort: x.consort,
+      lengthOfReign: x.startReign - x.endReign
+    }
+  });
+
+  return output2;
 }
   var result = moreThanFivePlusLength(dataset);
   console.log(result);
